@@ -21,7 +21,7 @@ router.post('/', async (req, res) => {
                 createAt: dateThailand
             })
             try {
-                let result = await query.save()
+                await query.save()
                 res.json({"Result" : `Added Successfully \n${JSON.stringify(req.body)}\n`})
             }
             catch (err) {

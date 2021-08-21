@@ -8,6 +8,8 @@ app.use(bodyParser.json())
 // Routes
 const addRoute = require('./routes/add.js')
 const getRoute = require('./routes/get.js')
+const updateRoute = require('./routes/update.js')
+const deleteRoute = require('./routes/delete.js')
 
 // Database
 try {
@@ -22,7 +24,9 @@ try {
 
 // Routing
 app.use('/', getRoute)
-app.use('/add', addRoute)
+app.use('/', addRoute)
+app.use('/', updateRoute)
+app.use('/', deleteRoute)
 
 // Other
 app.listen(port, () => {
