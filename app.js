@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const app = express()
 const port = 3000
+require('dotenv').config()
 app.use(bodyParser.json())
 
 // Routes
@@ -14,7 +15,7 @@ const deleteRoute = require('./routes/delete.js')
 // Database
 try {
     mongoose.connect(
-        'mongodb+srv://root:1234@mycluster.sr4nd.mongodb.net/cardshop?retryWrites=true&w=majority',
+        process.env.DB_CONNECT,
         { useNewUrlParser: true, useUnifiedTopology: true },
         () => { console.log('Mongoose is Running') }
     )
