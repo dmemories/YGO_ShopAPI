@@ -6,7 +6,7 @@ const moment = require('moment-timezone');
 const dateThailand = moment.tz(Date.now(), "Asia/Bangkok");
 
 router.post('/', async (req, res) => {
-    if (func.hasAllEle(req.body, ['name', 'price'])) {
+    if (func.hasAllEle(req.body, ['id', 'name', 'price'])) {
         if (req.body['id'].length !== 8)
             res.json({"Error" : "Your card id is not match !"})
         else if (req.body['name'].length < 1 || req.body['name'].length > 30)
